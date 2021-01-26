@@ -1,4 +1,4 @@
-package com.chunter.composetalk.ui.main
+package com.chunter.composetalk.ui.screens.teamlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

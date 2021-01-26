@@ -1,4 +1,4 @@
-package com.chunter.composetalk.ui.main
+package com.chunter.composetalk.ui.screens.teamlist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import com.chunter.composetalk.data.DataLoader
 import com.chunter.composetalk.data.Team
 import kotlinx.coroutines.launch
 
-class MainViewModel : ViewModel() {
+class TeamListViewModel : ViewModel() {
 
     private val _state = MutableLiveData(ViewState())
     val state: LiveData<ViewState>

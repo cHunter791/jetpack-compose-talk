@@ -1,4 +1,4 @@
-package com.chunter.composetalk.ui.detail
+package com.chunter.composetalk.ui.screens.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

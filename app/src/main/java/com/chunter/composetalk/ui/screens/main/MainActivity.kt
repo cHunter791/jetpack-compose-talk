@@ -1,4 +1,4 @@
-package com.chunter.composetalk.ui.main
+package com.chunter.composetalk.ui.screens.main
 
 import androidx.appcompat.app.AppCompatActivity
 import com.chunter.composetalk.R

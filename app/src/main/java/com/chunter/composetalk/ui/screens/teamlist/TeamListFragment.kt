@@ -1,4 +1,4 @@
-package com.chunter.composetalk.ui.main
+package com.chunter.composetalk.ui.screens.teamlist
 
 import android.os.Bundle
 import android.view.View
@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chunter.composetalk.R
 import com.chunter.composetalk.data.Team
 
-class MainFragment : Fragment(R.layout.fragment_main) {
+class TeamListFragment : Fragment(R.layout.fragment_main) {
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: TeamListViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
