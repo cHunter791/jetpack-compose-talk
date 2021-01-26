@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.setContent
-import androidx.compose.ui.viewinterop.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -28,11 +27,11 @@ class MainActivity : AppCompatActivity() {
 }
 
 @Composable
-fun MainScreen(viewModel: MainViewModel = viewModel()) {
+fun MainScreen() {
     val navController = rememberNavController()
 
     NavHost(navController, startDestination = "teamlist") {
-        composable("teamlist") { TeamListScreen(viewModel, navController) }
+        composable("teamlist") { TeamListScreen(navController) }
         composable(
             "detail/{teamId}",
             arguments = listOf(navArgument("teamId") {

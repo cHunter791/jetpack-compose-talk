@@ -9,17 +9,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.navigate
 import com.chunter.composetalk.data.Team
 import com.chunter.composetalk.teamPreview
 import com.chunter.composetalk.ui.components.TeamRow
-import com.chunter.composetalk.ui.screens.main.MainViewModel
-import com.chunter.composetalk.ui.screens.main.MainViewModel.ViewState
+import com.chunter.composetalk.ui.screens.teamlist.TeamListViewModel.ViewState
 
 @Composable
 fun TeamListScreen(
-    viewModel: MainViewModel,
-    navController: NavHostController
+    navController: NavHostController,
+    viewModel: TeamListViewModel = viewModel()
 ) {
     val state: ViewState by viewModel.state.observeAsState(initial = ViewState())
 
