@@ -5,8 +5,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.ViewCompat
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.chunter.composetalk.R
@@ -14,7 +12,9 @@ import com.chunter.composetalk.data.Team
 
 class TeamsAdapter(
     private val onClickListener: (Team) -> Unit
-) : ListAdapter<Team, RecyclerView.ViewHolder>(diffUtil) {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    private var teams: List<Team> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return object : RecyclerView.ViewHolder(
@@ -25,7 +25,7 @@ class TeamsAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val view = holder.itemView
-        val team = getItem(position)
+        val team = teams[position]
 
         val badgeImage: ImageView = view.findViewById(R.id.team_badge_image)
         ViewCompat.setTransitionName(badgeImage, "${team.id}_badge")
@@ -42,16 +42,10 @@ class TeamsAdapter(
         view.setOnClickListener { onClickListener(team) }
     }
 
-    companion object {
+    override fun getItemCount(): Int = teams.size
 
-        val diffUtil = object : DiffUtil.ItemCallback<Team>() {
-            override fun areItemsTheSame(oldItem: Team, newItem: Team): Boolean {
-                return oldItem == newItem
-            }
-
-            override fun areContentsTheSame(oldItem: Team, newItem: Team): Boolean {
-                return oldItem.id == newItem.id
-            }
-        }
+    fun submitList(teams: List<Team>) {
+        this.teams = teams
+        notifyDataSetChanged()
     }
 }
