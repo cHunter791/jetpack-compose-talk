@@ -1,4 +1,4 @@
-package com.chunter.composetalk
+package com.chunter.composetalk.data
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

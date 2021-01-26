@@ -1,4 +1,4 @@
-package com.chunter.composetalk
+package com.chunter.composetalk.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
