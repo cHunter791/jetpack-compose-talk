@@ -1,4 +1,4 @@
-package com.chunter.composetalk
+package com.chunter.composetalk.data
 
 import android.util.Log
 import io.ktor.client.*
@@ -26,5 +26,14 @@ object DataLoader {
     } catch (e: Exception) {
         Log.e("GET Teams", e.message ?: "No message", e)
         emptyList()
+    }
+
+    suspend fun getTeam(id: Int): Team? = try {
+        val response: TeamResponse =
+            client.get("https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=$id")
+        response.teams.first()
+    } catch (e: Exception) {
+        Log.e("GET Team $id", e.message ?: "No message", e)
+        null
     }
 }

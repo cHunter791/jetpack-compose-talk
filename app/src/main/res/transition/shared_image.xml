@@ -1,5 +1,0 @@
-<transitionSet>
-    <changeImageTransform />
-    <changeBounds />
-    <changeTransform />
-</transitionSet>

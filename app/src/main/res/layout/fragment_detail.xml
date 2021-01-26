@@ -8,21 +8,30 @@
     android:layout_marginTop="8dp"
     android:layout_marginEnd="8dp">
 
+    <ProgressBar
+        android:id="@+id/loading_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/badge"
         android:layout_width="80dp"
-        android:transitionName="badge"
         android:layout_height="80dp"
         android:contentDescription="Team Badge"
+        android:transitionName="badge"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
-        android:transitionName="title"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:transitionName="title"
         app:layout_constraintBottom_toTopOf="@id/alternate_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/badge"
@@ -32,9 +41,9 @@
     <TextView
         android:id="@+id/alternate_title"
         android:layout_width="0dp"
-        android:transitionName="alternate_title"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:transitionName="alternate_title"
         app:layout_constraintBottom_toBottomOf="@id/badge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/badge"
@@ -99,5 +108,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/twitter_fab" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/detail_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="badge, title, alternate_title, description, website_fab, facebook_fab, twitter_fab, instagram_fab" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

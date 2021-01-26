@@ -1,7 +1,6 @@
-package com.chunter.composetalk
+package com.chunter.composetalk.ui.main
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,9 +9,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.chunter.composetalk.R
+import com.chunter.composetalk.data.Team
 
 class TeamsAdapter(
-    private val onClickListener: (Team, List<View>) -> Unit
+    private val onClickListener: (Team) -> Unit
 ) : ListAdapter<Team, RecyclerView.ViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -38,14 +39,7 @@ class TeamsAdapter(
         ViewCompat.setTransitionName(alternateNameText, "${team.id}_alternate_name")
         alternateNameText.text = team.alternateName
 
-        view.setOnClickListener {
-            onClickListener(team, listOf(
-                badgeImage
-//                nameText,
-//                alternateNameText
-            ))
-        }
-
+        view.setOnClickListener { onClickListener(team) }
     }
 
     companion object {
