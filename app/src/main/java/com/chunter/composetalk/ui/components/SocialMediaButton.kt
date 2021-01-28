@@ -2,7 +2,7 @@ package com.chunter.composetalk.ui.components
 
 import android.content.Context
 import android.util.AttributeSet
-import com.chunter.composetalk.ui.util.openUrl
+import com.chunter.composetalk.ui.openUrl
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class SocialMediaButton @JvmOverloads constructor(

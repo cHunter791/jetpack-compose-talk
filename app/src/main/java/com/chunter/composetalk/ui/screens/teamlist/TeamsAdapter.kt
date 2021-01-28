@@ -2,13 +2,10 @@ package com.chunter.composetalk.ui.screens.teamlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.chunter.composetalk.R
 import com.chunter.composetalk.data.Team
+import com.chunter.composetalk.ui.components.TeamRow
 
 class TeamsAdapter(
     private val onClickListener: (Team) -> Unit
@@ -24,22 +21,11 @@ class TeamsAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val view = holder.itemView
         val team = teams[position]
 
-        val badgeImage: ImageView = view.findViewById(R.id.team_badge_image)
-        ViewCompat.setTransitionName(badgeImage, "${team.id}_badge")
-        badgeImage.load(team.badgeUrl)
-
-        val nameText: TextView = view.findViewById(R.id.team_name_text)
-        ViewCompat.setTransitionName(nameText, "${team.id}_name")
-        nameText.text = team.name
-
-        val alternateNameText: TextView = view.findViewById(R.id.team_name_alternate_text)
-        ViewCompat.setTransitionName(alternateNameText, "${team.id}_alternate_name")
-        alternateNameText.text = team.alternateName
-
-        view.setOnClickListener { onClickListener(team) }
+        val teamRow = holder.itemView.findViewById<TeamRow>(R.id.team_row_view)
+        teamRow.setData(team)
+        teamRow.setOnClickListener { onClickListener(team) }
     }
 
     override fun getItemCount(): Int = teams.size

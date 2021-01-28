@@ -3,17 +3,16 @@ package com.chunter.composetalk.ui.screens.detail
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
-import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import coil.load
 import com.chunter.composetalk.R
 import com.chunter.composetalk.data.Team
 import com.chunter.composetalk.ui.components.SocialMediaButton
+import com.chunter.composetalk.ui.components.TeamRow
 
 class DetailFragment : Fragment(R.layout.fragment_detail) {
 
@@ -21,9 +20,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     private lateinit var loadingBar: ProgressBar
     private lateinit var detailGroup: Group
-    private lateinit var badgeImage: ImageView
-    private lateinit var titleText: TextView
-    private lateinit var alternateTitleText: TextView
+    private lateinit var teamRowView: TeamRow
     private lateinit var descriptionText: TextView
     private lateinit var websiteFab: SocialMediaButton
     private lateinit var facebookFab: SocialMediaButton
@@ -50,9 +47,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
     private fun initViews(view: View) {
         loadingBar = view.findViewById(R.id.loading_bar)
         detailGroup = view.findViewById(R.id.detail_group)
-        badgeImage = view.findViewById(R.id.badge)
-        titleText = view.findViewById(R.id.title)
-        alternateTitleText = view.findViewById(R.id.alternate_title)
+        teamRowView = view.findViewById(R.id.team_row_view)
         descriptionText = view.findViewById(R.id.description)
         websiteFab = view.findViewById(R.id.website_fab)
         facebookFab = view.findViewById(R.id.facebook_fab)
@@ -61,9 +56,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
     }
 
     private fun setupUI(team: Team) {
-        badgeImage.load(team.badgeUrl)
-        titleText.text = team.name
-        alternateTitleText.text = team.alternateName
+        teamRowView.setData(team)
 
         descriptionText.text = team.description
         descriptionText.movementMethod = ScrollingMovementMethod()

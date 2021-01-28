@@ -17,38 +17,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/badge"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:contentDescription="Team Badge"
-        android:transitionName="badge"
+    <com.chunter.composetalk.ui.components.TeamRow
+        android:id="@+id/team_row_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:badgeSize="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:transitionName="title"
-        app:layout_constraintBottom_toTopOf="@id/alternate_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/badge"
-        app:layout_constraintTop_toTopOf="@id/badge"
-        tools:text="Spurs" />
-
-    <TextView
-        android:id="@+id/alternate_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:transitionName="alternate_title"
-        app:layout_constraintBottom_toBottomOf="@id/badge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/badge"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        tools:text="Spurs FC" />
 
     <TextView
         android:id="@+id/description"
@@ -58,7 +34,7 @@
         android:layout_marginBottom="8dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@id/website_fab"
-        app:layout_constraintTop_toBottomOf="@id/badge"
+        app:layout_constraintTop_toBottomOf="@id/team_row_view"
         tools:text="Spurs is the best football team" />
 
     <com.chunter.composetalk.ui.components.SocialMediaButton
@@ -114,6 +90,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids="badge, title, alternate_title, description, website_fab, facebook_fab, twitter_fab, instagram_fab" />
+        app:constraint_referenced_ids="team_row_view, description, website_fab, facebook_fab, twitter_fab, instagram_fab" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

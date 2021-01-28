@@ -1,7 +1,8 @@
-package com.chunter.composetalk.ui.util
+package com.chunter.composetalk.ui
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources.getSystem
 import android.net.Uri
 
 fun Context.openUrl(url: String) {
@@ -10,3 +11,5 @@ fun Context.openUrl(url: String) {
     defaultBrowser.data = Uri.parse(url)
     startActivity(defaultBrowser)
 }
+
+val Int.dp: Int get() = (this / getSystem().displayMetrics.density).toInt()
