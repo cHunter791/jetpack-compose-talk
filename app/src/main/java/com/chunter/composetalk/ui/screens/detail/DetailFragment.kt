@@ -1,7 +1,5 @@
 package com.chunter.composetalk.ui.screens.detail
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
@@ -15,7 +13,7 @@ import androidx.fragment.app.viewModels
 import coil.load
 import com.chunter.composetalk.R
 import com.chunter.composetalk.data.Team
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.chunter.composetalk.ui.components.SocialMediaButton
 
 class DetailFragment : Fragment(R.layout.fragment_detail) {
 
@@ -27,10 +25,10 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
     private lateinit var titleText: TextView
     private lateinit var alternateTitleText: TextView
     private lateinit var descriptionText: TextView
-    private lateinit var websiteFab: FloatingActionButton
-    private lateinit var facebookFab: FloatingActionButton
-    private lateinit var twitterFab: FloatingActionButton
-    private lateinit var instagramFab: FloatingActionButton
+    private lateinit var websiteFab: SocialMediaButton
+    private lateinit var facebookFab: SocialMediaButton
+    private lateinit var twitterFab: SocialMediaButton
+    private lateinit var instagramFab: SocialMediaButton
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -71,30 +69,15 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         descriptionText.movementMethod = ScrollingMovementMethod()
 
         websiteFab.isVisible = team.websiteUrl.isNotEmpty()
-        if (websiteFab.isVisible) {
-            websiteFab.setOnClickListener { openUrl(team.websiteUrl) }
-        }
+        websiteFab.setUrl(team.websiteUrl)
 
         facebookFab.isVisible = team.facebookUrl.isNotEmpty()
-        if (facebookFab.isVisible) {
-            facebookFab.setOnClickListener { openUrl(team.facebookUrl) }
-        }
+        facebookFab.setUrl(team.websiteUrl)
 
         twitterFab.isVisible = team.twitterUrl.isNotEmpty()
-        if (twitterFab.isVisible) {
-            twitterFab.setOnClickListener { openUrl(team.twitterUrl) }
-        }
+        twitterFab.setUrl(team.websiteUrl)
 
         instagramFab.isVisible = team.instagramUrl.isNotEmpty()
-        if (instagramFab.isVisible) {
-            instagramFab.setOnClickListener { openUrl(team.instagramUrl) }
-        }
-    }
-
-    private fun openUrl(url: String) {
-        val defaultBrowser =
-            Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
-        defaultBrowser.data = Uri.parse(url)
-        startActivity(defaultBrowser)
+        instagramFab.setUrl(team.websiteUrl)
     }
 }

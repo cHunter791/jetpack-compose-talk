@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@id/badge"
         tools:text="Spurs is the best football team" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.chunter.composetalk.ui.components.SocialMediaButton
         android:id="@+id/website_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
         app:layout_constraintEnd_toStartOf="@id/facebook_fab"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.chunter.composetalk.ui.components.SocialMediaButton
         android:id="@+id/facebook_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toStartOf="@id/twitter_fab"
         app:layout_constraintStart_toEndOf="@id/website_fab" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.chunter.composetalk.ui.components.SocialMediaButton
         android:id="@+id/twitter_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
         app:layout_constraintEnd_toStartOf="@id/instagram_fab"
         app:layout_constraintStart_toEndOf="@id/facebook_fab" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.chunter.composetalk.ui.components.SocialMediaButton
         android:id="@+id/instagram_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
