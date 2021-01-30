@@ -57,20 +57,18 @@ dependencies {
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
     implementation "androidx.compose.runtime:runtime-rxjava2:$compose_version"
-    implementation "androidx.navigation:navigation-compose:1.0.0-alpha04"
+    implementation "androidx.navigation:navigation-compose:1.0.0-alpha05"
 
-    implementation "dev.chrisbanes.accompanist:accompanist-coil:0.4.1"
-    implementation "dev.chrisbanes.accompanist:accompanist-insets:0.4.1"
+    implementation "dev.chrisbanes.accompanist:accompanist-coil:0.5.0"
+    implementation "dev.chrisbanes.accompanist:accompanist-insets:0.5.0"
 
-    implementation 'androidx.core:core-ktx:1.5.0-alpha05'
+    implementation 'androidx.core:core-ktx:1.5.0-beta01'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation "androidx.fragment:fragment-ktx:1.2.5"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     implementation 'com.google.android.material:material:1.2.1'
-
-    implementation "io.coil-kt:coil:1.1.0"
 
     implementation "io.ktor:ktor-client-android:1.5.0"
     implementation "io.ktor:ktor-client-cio:1.5.0"

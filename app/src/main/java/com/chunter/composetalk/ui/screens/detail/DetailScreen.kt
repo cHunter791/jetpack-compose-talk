@@ -1,7 +1,8 @@
 package com.chunter.composetalk.ui.screens.detail
 
-import androidx.compose.foundation.ScrollableColumn
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -56,7 +57,7 @@ fun LoadingViewPreview() {
 
 @Composable
 fun TeamDetailView(team: Team) {
-    ScrollableColumn {
+    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
         TeamRow(
             team = team,
             modifier = Modifier.size(128.dp)

@@ -32,7 +32,11 @@ fun TeamRow(
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        CoilImage(team.badgeUrl, modifier = modifier)
+        CoilImage(
+            data = team.badgeUrl,
+            contentDescription = "Team Badge",
+            modifier = modifier
+        )
         Column(
             horizontalAlignment = Alignment.Start,
             modifier = Modifier.padding(start = 8.dp)

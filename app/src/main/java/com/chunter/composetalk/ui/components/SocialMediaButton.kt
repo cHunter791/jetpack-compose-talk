@@ -17,7 +17,7 @@ fun SocialMediaButton(
 ) {
     val context = AmbientContext.current
     FloatingActionButton(onClick = { openUrl(context, url) }) {
-        Icon(imageVector = vectorResource(id = res))
+        Icon(imageVector = vectorResource(id = res), null)
     }
 }
 
