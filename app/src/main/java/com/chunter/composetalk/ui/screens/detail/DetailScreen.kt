@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -57,26 +59,38 @@ fun LoadingViewPreview() {
 
 @Composable
 fun TeamDetailView(team: Team) {
-    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-        TeamRow(
-            team = team,
-            modifier = Modifier.size(128.dp)
-        )
-        Text(
-            text = team.description,
-            modifier = Modifier.padding(16.dp)
-        )
-        Row(
-            horizontalArrangement = Arrangement.SpaceBetween,
+    Column(modifier = Modifier.fillMaxSize()) {
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically
+                .verticalScroll(rememberScrollState())
+                .weight(1f)
         ) {
-            SocialMediaButton(team.websiteUrl, R.drawable.ic_website)
-            SocialMediaButton(team.facebookUrl, R.drawable.ic_facebook)
-            SocialMediaButton(team.twitterUrl, R.drawable.ic_twitter)
-            SocialMediaButton(team.instagramUrl, R.drawable.ic_instagram)
+            TeamRow(
+                team = team,
+                modifier = Modifier.size(128.dp)
+            )
+            Text(
+                text = team.description,
+                modifier = Modifier.padding(16.dp)
+            )
+        }
+        Surface(
+            color = MaterialTheme.colors.primary,
+            elevation = 4.dp
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp)
+                    .weight(.2f),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                SocialMediaButton(team.websiteUrl, R.drawable.ic_website)
+                SocialMediaButton(team.facebookUrl, R.drawable.ic_facebook)
+                SocialMediaButton(team.twitterUrl, R.drawable.ic_twitter)
+                SocialMediaButton(team.instagramUrl, R.drawable.ic_instagram)
+            }
         }
     }
 }
