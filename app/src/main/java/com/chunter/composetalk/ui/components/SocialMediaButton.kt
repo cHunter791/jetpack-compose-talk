@@ -4,8 +4,8 @@ import androidx.annotation.DrawableRes
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.AmbientContext
-import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.chunter.composetalk.R
 import com.chunter.composetalk.openUrl
@@ -15,9 +15,9 @@ fun SocialMediaButton(
     url: String,
     @DrawableRes res: Int
 ) {
-    val context = AmbientContext.current
+    val context = LocalContext.current
     FloatingActionButton(onClick = { openUrl(context, url) }) {
-        Icon(imageVector = vectorResource(id = res), null)
+        Icon(painter = painterResource(id = res), null)
     }
 }
 
