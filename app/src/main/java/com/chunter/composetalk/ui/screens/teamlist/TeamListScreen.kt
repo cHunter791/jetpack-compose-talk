@@ -15,6 +15,7 @@ import androidx.navigation.compose.navigate
 import com.chunter.composetalk.data.Team
 import com.chunter.composetalk.teamPreview
 import com.chunter.composetalk.ui.components.TeamRow
+import com.chunter.composetalk.ui.screens.main.routeDetail
 import com.chunter.composetalk.ui.screens.teamlist.TeamListViewModel.ViewState
 
 @Composable
@@ -27,7 +28,7 @@ fun TeamListScreen(
     TeamListView(
         teams = state.teams,
         onItemSelected = { team ->
-            navController.navigate("detail/${team.id}")
+            navController.navigate("$routeDetail/${team.id}")
         }
     )
 }
@@ -48,7 +49,8 @@ fun TeamListView(
     }
 }
 
-@Preview(showBackground = true)
+
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 fun TeamListViewPreview() {
     TeamListView(
